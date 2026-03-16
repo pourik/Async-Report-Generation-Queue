@@ -1,0 +1,20 @@
+{
+  "name": "async-report-generation-queue-demo",
+  "version": "1.0.0",
+  "description": "End-to-end demo of an async report generation queue",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "async",
+    "queue",
+    "report",
+    "demo"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,234 @@
+:root {
+  --bg: #f6efe5;
+  --panel: rgba(255, 252, 247, 0.84);
+  --panel-border: rgba(93, 61, 41, 0.12);
+  --text: #2c211b;
+  --muted: #6b5a50;
+  --accent: #bf5a36;
+  --accent-dark: #91381a;
+  --queued: #8b6f47;
+  --processing: #2b6f77;
+  --completed: #2d7a4b;
+  --failed: #9c2f2f;
+  --shadow: 0 20px 45px rgba(68, 34, 18, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(191, 90, 54, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(43, 111, 119, 0.15), transparent 24%),
+    linear-gradient(180deg, #f8f1e6 0%, #efe3d3 100%);
+}
+
+.layout {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.82rem;
+  color: var(--accent-dark);
+  margin-bottom: 0.6rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.92;
+  margin: 0;
+  max-width: 11ch;
+}
+
+.hero-copy {
+  max-width: 52rem;
+  font-size: 1.07rem;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.panel-header,
+.job-topline {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.report-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.report-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  border: 1px solid rgba(44, 33, 27, 0.14);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1.2rem;
+  background: var(--accent);
+  color: #fff8f3;
+  cursor: pointer;
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: var(--accent-dark);
+}
+
+.secondary-button {
+  background: #f0dfcf;
+  color: var(--text);
+}
+
+.jobs {
+  display: grid;
+  gap: 1rem;
+}
+
+.job-card {
+  border: 1px solid rgba(44, 33, 27, 0.1);
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.job-title,
+h2,
+h3 {
+  margin: 0;
+}
+
+.job-meta,
+.job-detail,
+.form-message {
+  color: var(--muted);
+}
+
+.job-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  text-transform: capitalize;
+  font-size: 0.88rem;
+  color: white;
+}
+
+.status-queued {
+  background: var(--queued);
+}
+
+.status-processing {
+  background: var(--processing);
+}
+
+.status-completed {
+  background: var(--completed);
+}
+
+.status-failed {
+  background: var(--failed);
+}
+
+.progress-track {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(44, 33, 27, 0.08);
+  overflow: hidden;
+  margin: 0.9rem 0 0.7rem;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d67d52 0%, #c84f2c 100%);
+  transition: width 250ms ease;
+}
+
+.job-preview {
+  margin: 0.7rem 0;
+  padding: 0.9rem;
+  border-radius: 14px;
+  background: #2c211b;
+  color: #f5ece0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.download-link {
+  display: inline-block;
+  color: var(--accent-dark);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+}
+
+.timeline {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.empty-state {
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    width: min(100% - 1rem, 100%);
+    padding-top: 1rem;
+  }
+
+  .panel-header,
+  .job-topline {
+    flex-direction: column;
+  }
+}
